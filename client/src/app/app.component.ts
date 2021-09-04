@@ -15,7 +15,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.api.get()
       .subscribe(
-        res => this.result = res,
+        res => {
+          this.result = res.message;
+        },
         err => {
           this.result = `And we got errrrrrror... ${ err.message }`;
         }
